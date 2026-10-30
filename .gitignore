@@ -1,0 +1,66 @@
+
+# ==============================
+# macOS
+# ==============================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# ==============================
+# Compilación C / C++
+# ==============================
+*.o
+*.obj
+*.a
+*.dylib
+*.so
+*.dll
+*.exe
+*.out
+*.app
+
+# Ejecutables del proyecto
+/bin/
+/build/
+
+# Archivos temporales de compiladores
+*.gch
+*.pch
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+
+# ==============================
+# IDE y editores
+# ==============================
+
+# Visual Studio Code
+.vscode/
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Xcode
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.xcworkspace/
+*.xcodeproj/
+
+
+# ==============================
+# Archivos temporales
+# ==============================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+
