@@ -1,6 +1,7 @@
 #include "operaciones.hpp"
 #include <string>
-#include <vector>
+#include <algorithm>
+#include <stdexcept>
 using namespace std;
 
 string normalizar(const string &A)
