@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-static string normalizar(const string &A)
+string normalizar(const string &A)
 {
     int i = 0;
     while (i < A.length() && A[i] == '0')
@@ -112,6 +112,7 @@ string restar(string A, string B)
 
     return normalizar(resultado);
 }
+
 string desplazar(const string &A, int k)
 {
     if (k < 0)
