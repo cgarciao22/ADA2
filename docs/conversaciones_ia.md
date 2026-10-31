@@ -1,7 +1,10 @@
-#Conversasiones de apoyo con IA
+
+# Conversaciones con IA
 
 Enlaces para documentar conversaciones con ChatGPT para apoyo en el desarrollo de la práctica.
+
 Fecha de consulta: 30 de octubre de 2026
+
 1. [GPT-5.6 Luna, de OpenAI] https://chatgpt.com/share/6ae656e3-6000-83ed-b71f-f080c983876c 
 
 ## Propósito de la conversación:
