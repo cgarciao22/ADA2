@@ -112,7 +112,34 @@ string restar(string A, string B)
 
     return normalizar(resultado);
 }
-string multiplicacionClasica(string A, string B)
+string desplazar(const string &A, int k)
 {
+    if (k < 0)
+    {
+        throw invalid_argument("El desplazamiento debe ser no negativo");
+    }
+    string numero = normalizar(A);
+
+    if (numero == "0")
+    {
+        return "0";
+    }
+    return numero + string(k, '0');
 }
-const int b = 10; // base
+
+void partir(const string &A, int m, string &izquierda, string &derecha)
+{
+    izquierda = "";
+
+    for (int i = 0; i < m; i++)
+    {
+        izquierda += A[i];
+    }
+
+    derecha = "";
+
+    for (int i = m; i < A.length(); i++)
+    {
+        derecha += A[i];
+    }
+}
