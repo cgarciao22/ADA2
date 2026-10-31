@@ -2,61 +2,117 @@
 #include <vector>
 using namespace std;
 
-static string normalizar(const string& A) {
-
+static string normalizar(const string &A)
+{
     int i = 0;
-
-    while (i < A.length() && A[i] == '0') {
+    while (i < A.length() && A[i] == '0')
+    {
         i++;
     }
-
-    if (i == A.length()) {
+    if (i == A.length())
+    {
         return "0";
     }
-
     string resultado = "";
-
-    while (i < A.length()) {
+    while (i < A.length())
+    {
         resultado += A[i];
         i++;
     }
-
     return resultado;
 }
 
-
-string sumar(const string& A, const string& B){
+string sumar(const string &A, const string &B)
+{
     int i = A.length() - 1;
     int j = B.length() - 1;
+
     string sol = "";
+    int acumulado = 0;
 
-    int  acumulado = 0;
-
-    while (i >= 0 || j >= 0 || acumulado > 0) {
+    while (i >= 0 || j >= 0 || acumulado > 0)
+    {
 
         int digitoA = (i >= 0) ? A[i] - '0' : 0;
         int digitoB = (j >= 0) ? B[j] - '0' : 0;
 
-        int suma = digitoA + digitoB + acarreo;
+        int suma = digitoA + digitoB + acumulado;
 
         int digito = suma % 10;
         acumulado = suma / 10;
 
-        resultado += char('0' + digito);
+        sol += char('0' + digito);
 
         i--;
         j--;
     }
-    
-    reverse(sol.begin(), sol.end()); 
-    return normalizar(sol); 
 
-}
-string restar (string A, string B){
+    reverse(sol.begin(), sol.end());
 
-}
-string multiplicacionClasica(string A, string B) {  
-
+    return normalizar(sol);
 }
 
-const int b = 10; //base
+// Devuelve 1 si A > B, 0 si A == B y -1 si A < B.
+static int comparar(const string &A, const string &B)
+{
+    if (A.size() > B.size())
+        return 1;
+    if (A.size() < B.size())
+        return -1;
+
+    if (A > B)
+        return 1;
+    if (A < B)
+        return -1;
+
+    return 0;
+}
+
+string restar(string A, string B)
+{
+    string a = normalizar(A);
+    string b = normalizar(B);
+
+    if (comparar(a, b) < 0)
+    {
+        throw invalid_argument("La resta requiere A >= B");
+    }
+
+    int i = a.size() - 1;
+    int j = b.size() - 1;
+
+    int prestamo = 0;
+
+    string resultado = "";
+
+    while (i >= 0)
+    {
+
+        int digitoA = (a[i] - '0') - prestamo;
+        int digitoB = (j >= 0) ? b[j] - '0' : 0;
+
+        prestamo = 0;
+
+        if (digitoA < digitoB)
+        {
+            digitoA += 10;
+            prestamo = 1;
+        }
+
+        int resta = digitoA - digitoB;
+
+        resultado += char('0' + resta);
+
+        i--;
+        j--;
+    }
+
+    // Invertir y eliminar ceros a la izquierda.
+    reverse(resultado.begin(), resultado.end());
+
+    return normalizar(resultado);
+}
+string multiplicacionClasica(string A, string B)
+{
+}
+const int b = 10; // base
