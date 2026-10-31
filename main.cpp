@@ -25,7 +25,7 @@ int main()
 
     if (resClasica == resKaratsuba)
     {
-        cout << "\n ¡Los resultados coinciden perfectamente!" << endl;
+        cout << "\n Coinciden" << endl;
     }
     else
     {

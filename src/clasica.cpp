@@ -1,3 +1,5 @@
+#include "clasica.hpp"
+#include "operaciones.hpp"
 #include <string>
 #include <vector>
 #include <algorithm>

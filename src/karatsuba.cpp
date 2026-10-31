@@ -1,15 +1,11 @@
+#include "karatsuba.hpp"
+#include "clasica.hpp"
+#include "operaciones.hpp"
 #include <string>
 #include <algorithm>
 #include <stdexcept>
 
 using namespace std;
-
-// Declaración de auxiliares existentes
-string normalizar(const string &A);
-string sumar(const string &A, const string &B);
-string restar(string A, string B);
-string desplazar(const string &A, int k);
-void partir(const string &A, int m, string &izquierda, string &derecha);
 
 int nextDos(int n)
 {
