@@ -22,11 +22,10 @@ string randomNum(int n, mt19937 &gen)
         s[i] = '0' + resto(gen);
     return s;
 }
-
+// Calentamiento + calibración: duplicar reps hasta que el lote dure >= 20 ms - mejoras hechas con apoyo de Claude a partir de codigo original.
 template <class F>
 double medirNs(F f, const string &A, const string &B)
 {
-    // Calentamiento + calibración: duplicar reps hasta que el lote dure >= 20 ms
     long long reps = 1;
     while (true)
     {
