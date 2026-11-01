@@ -9,3 +9,9 @@ Fecha de consulta: 30 de octubre de 2026
 
 ## Propósito de la conversación:
 Resolución de dudas sobre algoritmo de tener un entero mas grande que otro, apoyo con algoritmo de karatsuba casos en que m%2 != 0 y estructura del algortimo, apoyo con estructuración del proyecto, resolución de errores de compilación, creación de menu para main. 
+
+Fecha de consulta: 30 de octubre 2026
+
+2. [Claude de Anthropic]
+## Propósito de la conversación:
+Resolución de dudas sobre benchmark, optimización de funcion de generación de números aleatorios, apoyo en desarrllo de codigo para llevar a cabo los experimentos de toma de tiempo

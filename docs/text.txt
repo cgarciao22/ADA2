@@ -1,1 +1,5 @@
 https://dev.to/frorning/understanding-and-implementing-the-karatsuba-multiplication-algorithm-for-large-numbers-2dj4 
+https://www-geeksforgeeks-org.translate.goog/cpp/stdmt19937-class-in-cpp/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sge&_x_tr_hist=true 
+https://www.researchgate.net/publication/273133047_How_to_Build_a_Benchmark 
+definicion de benchmark segun la fuente: Standard tool for the com-petitive evaluation and comparison of competing systemsor components according to speciﬁc characteristics, such asperformance, dependability, or security”.
+Para la estructuración y diseño de la fase experimental de este proyecto, se han tomado como referencia los lineamientos metodológicos de diseño de benchmarks propuestos por von Kistowski et al. (2015). Siguiendo sus criterios de relevancia, reproducibilidad y equidad, se implementó un entorno de medición controlado con std::chrono::steady_clock para evaluar el comportamiento asintótico real frente al teórico de ambos algoritmos"
