@@ -42,17 +42,6 @@
 # Visual Studio Code
 .vscode/
 
-# CLion / JetBrains
-.idea/
-cmake-build-*/
-
-# Xcode
-*.xcuserstate
-xcuserdata/
-DerivedData/
-*.xcworkspace/
-*.xcodeproj/
-
 
 # ==============================
 # Archivos temporales
