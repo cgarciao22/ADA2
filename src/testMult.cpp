@@ -56,7 +56,7 @@ void validar()
         cout << "  B: " << casos[i].B << endl;
 
         string resClasico = multiplicacionClasica(casos[i].A, casos[i].B);
-        string resKaratsuba = karatsuba(casos[i].A, casos[i].B);
+        string resKaratsuba = karatsuba(casos[i].A, casos[i].B, 62);
 
         cout << "  Clásico:   " << resClasico << endl;
         cout << "  Karatsuba: " << resKaratsuba << endl;
@@ -89,7 +89,7 @@ void validar()
         cout << "Pruebas fallidas: " << fallidas << "/" << casos.size() << endl;
         for (string nombre : failed)
         {
-            std::cout << nombre << " " << '\n';
+            cout << nombre << " " << '\n';
         }
     }
 }

@@ -51,6 +51,9 @@ string multiplicacionClasica(const string &A, const string &B)
         i++;
     }
 
+    if (i == sol.length())
+        return "0";
+
     sol = sol.substr(i);
 
     return sol;

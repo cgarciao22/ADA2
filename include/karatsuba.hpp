@@ -4,6 +4,6 @@
 #include <string>
 using namespace std;
 
-string karatsuba(const string &A, const string &B);
+string karatsuba(const string &A, const string &B, int umbral = 32);
 
 #endif

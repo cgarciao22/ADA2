@@ -3,82 +3,47 @@
 #include "operaciones.hpp"
 #include <string>
 #include <algorithm>
-#include <stdexcept>
 
 using namespace std;
 
-int nextDos(int n)
-{
-    int potencia = 1;
-    while (potencia < n)
-    {
-        potencia *= 2;
-    }
-    return potencia;
-}
-
-string rellenarCeros(const string &A, int longitud)
+string rellenarCeros(const string &A, size_t longitud)
 {
     if (A.length() >= longitud)
         return A;
-
     return string(longitud - A.length(), '0') + A;
 }
 
-string karatsuba(const string &A, const string &B);
-
-static string karatsubaRec(const string &A, const string &B)
+static string karatsubaRec(const string &A, const string &B, int umbral)
 {
-    int n = A.length();
+    size_t n = max(A.length(), B.length());
 
-    // base
-    if (n == 1)
-    {
-        int prod = (A[0] - '0') * (B[0] - '0');
-        return to_string(prod);
-    }
+    // Caso base: clásico para tamaños pequeños
+    if (n <= (size_t)umbral)
+        return multiplicacionClasica(A, B);
 
-    int m = n / 2;
+    if (A.length() != B.length())
+        return karatsubaRec(rellenarCeros(A, n), rellenarCeros(B, n), umbral);
+
+    size_t h = n / 2;
     string x1, x0, y1, y0;
+    partir(A, n - h, x1, x0);
+    partir(B, n - h, y1, y0);
 
-    partir(A, m, x1, x0);
-    partir(B, m, y1, y0);
+    string pHigh = karatsubaRec(x1, y1, umbral);
+    string pLow = karatsubaRec(x0, y0, umbral);
+    // CAMBIO CLAVE: recursión interna, sin normalizar ni redondear a 2^k
+    string pMid = karatsubaRec(sumar(x1, x0), sumar(y1, y0), umbral);
 
-    string pHigh = karatsubaRec(x1, y1); // P2 (alta * alta)
-    string pLow = karatsubaRec(x0, y0);  // P0 (baja * baja)
+    string t = restar(restar(pMid, pHigh), pLow);
 
-    // (x1 + x0) * (y1 + y0)
-    string xSum = sumar(x1, x0);
-    string ySum = sumar(y1, y0);
-
-    string pMid = karatsuba(xSum, ySum);
-
-    string t1 = restar(pMid, pHigh);
-    string t2 = restar(t1, pLow);
-
-    // P_high * 10^(2m) + t2 * 10^m + P_low
-    string term1 = desplazar(pHigh, 2 * m);
-    string term2 = desplazar(t2, m);
-
-    string sumaParcial = sumar(term1, term2);
-    return sumar(sumaParcial, pLow);
+    return sumar(sumar(desplazar(pHigh, 2 * h), desplazar(t, h)), pLow);
 }
 
-string karatsuba(const string &A, const string &B)
+string karatsuba(const string &A, const string &B, int umbral)
 {
-    string aNorm = normalizar(A);
-    string bNorm = normalizar(B);
-
-    if (aNorm == "0" || bNorm == "0")
-    {
+    string a = normalizar(A);
+    string b = normalizar(B);
+    if (a == "0" || b == "0")
         return "0";
-    }
-
-    int n = max(aNorm.length(), bNorm.length());
-    int longitud = nextDos(n);
-
-    string X = rellenarCeros(aNorm, longitud);
-    string Y = rellenarCeros(bNorm, longitud);
-
-    return karatsubaRec(X, Y);
+    return karatsubaRec(a, b, max(umbral, 3));
 }

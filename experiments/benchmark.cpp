@@ -56,7 +56,7 @@ int main()
     cout << "INICIANDO ANALISIS EXPERIMENTAL DE ALGORITMOS" << endl;
 
     mt19937 gen(42);
-    ofstream csv("experiments/resultados.csv");
+    ofstream csv("experiments/resultados_v2.csv");
     if (!csv.is_open())
     {
         cerr << "No se pudo abrir experiments/resultados.csv (¿existe la carpeta?)\n";
@@ -76,7 +76,9 @@ int main()
         }
 
         double tc = medirNs(multiplicacionClasica, A, B);
-        double tk = medirNs(karatsuba, A, B);
+        double tk = medirNs([](const string &a, const string &b)
+                            { return karatsuba(a, b); }, A, B);
+        ;
 
         cout << n << "\t\t" << tc << "\t\t" << tk << endl;
         csv << n << "," << tc << "," << tk << "\n";

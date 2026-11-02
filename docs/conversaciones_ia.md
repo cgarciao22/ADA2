@@ -12,6 +12,6 @@ Resolución de dudas sobre algoritmo de tener un entero mas grande que otro, apo
 
 Fecha de consulta: 30 de octubre 2026
 
-2. [Claude de Anthropic]
+2. [Claude de Anthropic] https://claude.ai/share/373297d7-0817-41ec-8b28-7b3fcfcd2566 
 ## Propósito de la conversación:
-Resolución de dudas sobre benchmark, optimización de funcion de generación de números aleatorios, apoyo en desarrllo de codigo para llevar a cabo los experimentos de toma de tiempo
+Resolución de dudas sobre benchmark, optimización de funcion de generación de números aleatorios, apoyo en desarrllo de codigo para llevar a cabo los experimentos de toma de tiempo, analisis de resultados y cambios en implementación para segunda prueba 

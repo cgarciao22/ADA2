@@ -132,17 +132,6 @@ string desplazar(const string &A, int k)
 
 void partir(const string &A, int m, string &izquierda, string &derecha)
 {
-    izquierda = "";
-
-    for (int i = 0; i < m; i++)
-    {
-        izquierda += A[i];
-    }
-
-    derecha = "";
-
-    for (int i = m; i < A.length(); i++)
-    {
-        derecha += A[i];
-    }
+    izquierda = A.substr(0, m);
+    derecha = A.substr(m);
 }

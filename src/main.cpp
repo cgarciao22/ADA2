@@ -23,7 +23,7 @@ void probarMultiplicaciones()
     cout << "\n========== RESULTADOS ==========\n";
 
     string resultadoClasico = multiplicacionClasica(A, B);
-    string resultadoKaratsuba = karatsuba(A, B);
+    string resultadoKaratsuba = karatsuba(A, B, 32);
 
     cout << "Multiplicacion clasica: " << resultadoClasico << endl;
     cout << "Multiplicacion Karatsuba: " << resultadoKaratsuba << endl;
