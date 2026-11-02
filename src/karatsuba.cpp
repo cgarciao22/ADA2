@@ -18,6 +18,8 @@ static string karatsubaRec(const string &A, const string &B, int umbral)
     size_t n = max(A.length(), B.length());
 
     // Caso base: clásico para tamaños pequeños
+    // mejora al algortimo del umbral sugerida por Claude e implementada debido a la ventaja
+    // del método clásico en n pequeños frente a Karatsuba
     if (n <= (size_t)umbral)
         return multiplicacionClasica(A, B);
 
